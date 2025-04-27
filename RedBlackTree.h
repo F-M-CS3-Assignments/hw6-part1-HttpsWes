@@ -27,6 +27,9 @@ class RedBlackTree {
 		RedBlackTree();
 		RedBlackTree(int newData);
 		RedBlackTree(const RedBlackTree &rbt);
+		~RedBlackTree(); 
+		
+
 
 		string ToInfixString() const {return ToInfixString(root);};
 		string ToPrefixString() const { return ToPrefixString(root);};
@@ -38,6 +41,8 @@ class RedBlackTree {
 		size_t Size() const {return numItems;};
 		int GetMin() const;
 		int GetMax() const;
+	
+
 		
 	
 	private: 
