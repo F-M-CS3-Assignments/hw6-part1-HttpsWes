@@ -1,0 +1,108 @@
+  
+Insert(int newData)
+
+	Create a new RBTNode with newData and red color 
+ 	//RBTNode *node = new RBTNode;
+
+	if it is an emtpy tree:  //(root == nullptr)
+		set the color of node to black and the root to node
+		return
+
+	
+	BasicInsert(node); //follow the binary serach tree to add the node as the leaf node
+	
+	
+	if(node->parent != nullptr && node->parent->color == COLOR_RED){
+			InsertFixUp(node);
+			
+		
+	numItems++;
+}
+
+
+BasicInsert(RBTNode *NewNode){
+	
+	//follow the binary serach tree to add the node as the leaf node
+	//also set up the parent pointer of node, and the left/right pointer of its parent node
+	
+}
+
+InsertFixUp(RBTNode *new_node) {
+	// Some helpful documentation / info on web
+	// https://www.includehelp.com/data-structure-tutorial/red-black-tree.aspx
+	// https://www.cs.usfca.edu/~galles/visualization/RedBlack.html
+
+	// These were useful, but I didn't really follow their algorithm(s)
+	// https://www.programiz.com/dsa/insertion-in-a-red-black-tree
+	// https://www.codesdope.com/course/data-structures-red-black-trees-insertion/
+	//Find uncle, parent and grand parent of the node
+	RBTNode *parent = new_node->parent;
+	RBTNode *uncle = GetUncle(new_node);
+	RBTNode *grand_parent = parent->parent;
+	
+	
+	if(uncle is black){
+		// Case 2, uncle is BLACK.  nullptr also counts as black
+		
+		// This happens in every case
+		if(grand_parent != nullptr){
+			grand_parent->color = COLOR_RED;
+		}
+		if(IsLeftChild(new_node) && IsLeftChild(parent)){
+			// Left Left
+			RightRotate(grand_parent);
+			parent->color = COLOR_BLACK;
+			
+		} else if(IsRightChild(new_node) && IsRightChild(parent)){
+			// Right Right
+			LeftRotate(grand_parent);
+			parent->color = COLOR_BLACK;
+			
+		} else if(IsLeftChild(new_node) && IsRightChild(parent)) {
+			// Left Right
+			RightRotate(parent);
+			LeftRotate(grand_parent);
+			new_node->color = COLOR_BLACK;
+			parent->color = COLOR_RED;
+			
+		} else if(IsRightChild(new_node) && IsLeftChild(parent)){
+			// Right Left
+			LeftRotate(parent);
+			RightRotate(grand_parent);
+			new_node->color = COLOR_BLACK;
+			parent->color = COLOR_RED;
+			
+		} else {
+			//output error message and throw an exception
+			throw invalid_argument("impossible state!");
+		}
+	} 
+    else if(uncle is not null and its color is red ){
+		// Case 6, uncle is RED
+		parent->color = COLOR_BLACK;
+		uncle->color = COLOR_BLACK;
+
+		if(grand_parent != nullptr){
+			if(root != grand_parent){
+				grand_parent->color = COLOR_RED;
+				if(grand_parent->parent != nullptr){
+					if(grand_parent->parent->color == COLOR_RED){
+						InsertFixUp(grand_parent);
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+void RedBlackTree::LeftRotate(RBTNode *n) {
+	// Find parent, rChild, rlGranChild
+	//e.g., RBTNode *parent = n->parent;
+
+	
+
+    //set parent and child nodes of these three nodes 
+	
+}
