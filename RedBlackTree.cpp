@@ -233,20 +233,23 @@ int RedBlackTree::GetMax() const {
 // Infix traversal
 string RedBlackTree::ToInfixString(const RBTNode* n) {
     if (n == nullptr) return "";
-    return ToInfixString(n->left) + " " + GetNodeString(n) + " " + ToInfixString(n->right);
+    return ToInfixString(n->left) + GetNodeString(n) + ToInfixString(n->right);
 }
+
 
 // Prefix traversal
 string RedBlackTree::ToPrefixString(const RBTNode* n) {
     if (n == nullptr) return "";
-    return GetNodeString(n) + " " + ToPrefixString(n->left) + ToPrefixString(n->right);
+    return GetNodeString(n) + ToPrefixString(n->left) + ToPrefixString(n->right);
 }
+
 
 // Postfix traversal
 string RedBlackTree::ToPostfixString(const RBTNode* n) {
     if (n == nullptr) return "";
-    return ToPostfixString(n->left) + ToPostfixString(n->right) + " " + GetNodeString(n);
+    return ToPostfixString(n->left) + ToPostfixString(n->right) + GetNodeString(n);
 }
+
 
 // GetColorString
 string RedBlackTree::GetColorString(const RBTNode* n) {
@@ -260,4 +263,5 @@ string RedBlackTree::GetColorString(const RBTNode* n) {
 string RedBlackTree::GetNodeString(const RBTNode* n) {
     return " " + GetColorString(n) + to_string(n->data) + " ";
 }
+
 
