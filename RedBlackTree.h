@@ -27,7 +27,7 @@ class RedBlackTree {
 		RedBlackTree();
 		RedBlackTree(int newData);
 		RedBlackTree(const RedBlackTree &rbt);
-		~RedBlackTree(); 
+		~RedBlackTree(); //added this for my destructor 
 		
 
 
